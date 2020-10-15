@@ -1,4 +1,5 @@
 from django.core.management.base import BaseCommand
+import csv
 
 
 class Command(BaseCommand):
@@ -9,7 +10,11 @@ class Command(BaseCommand):
     
     def handle(self, *args, **options):
         file_ = options['squirrel_file']
-        msg = f'You are importing from {file_}'
-        self.stdout.write(self.style.SUCCESS(msg))
+        
+        with open(file_) as fp:
+            reader = csv.DictReader(fp)
+
+            for item in reader:
+                print(item)
     
 
