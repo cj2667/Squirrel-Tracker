@@ -35,10 +35,11 @@ class Squirrel(models.Model):
     )
     
 
-    Date = models.CharField(
-        max_length = 20,
-        help_text=_('Date of finding Squirrel'),
-        blank = True,
+    Date = models.DateTimeField(
+        auto_now = False,
+        auto_now_add = False,
+        help_text=_('Date of finding Squirrel (sighting)'),
+        
     )
     
     
@@ -57,5 +58,6 @@ class Squirrel(models.Model):
     Age =  models.CharField(
         max_length = 15,
         help_text=_('Age of Squirrel'),
-        blank = True,
+        # black = True
     )
+
