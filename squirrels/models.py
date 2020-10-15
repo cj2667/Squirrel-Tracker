@@ -1,6 +1,7 @@
 from django.db import models
+from django.utils.translation import gettext as _
 
-class Squirrel(model.Model):
+class Squirrel(models.Model):
     Latitude = models.CharField(
         max_length = 100,
         help_text=_('Latitude of Squirrel'),
@@ -13,7 +14,7 @@ class Squirrel(model.Model):
     )
 
     Unique_Squirrel_ID = models.CharField(
-        max_lenth=100,
+        max_length=100,
         help_text=_('ID of Squirrel'),
     )
     
@@ -37,8 +38,7 @@ class Squirrel(model.Model):
     Date = models.CharField(
         max_length = 20,
         help_text=_('Date of finding Squirrel'),
-        blank = False,
-        null = True,
+        blank = True,
     )
     
     
@@ -54,9 +54,8 @@ class Squirrel(model.Model):
         (UNKNOWN, _('?')),
     ]
 
-    Age =  model.CharField(
+    Age =  models.CharField(
         max_length = 15,
         help_text=_('Age of Squirrel'),
-        blank = False, #not sure about this
-        null = True,   #not sure about this
+        blank = True,
     )
