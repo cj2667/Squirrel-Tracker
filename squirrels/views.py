@@ -10,5 +10,5 @@ def index(request):
     return render(request, 'squirrels/index.html', context)
 
 
-
-
+def mapping(request):
+    return render(request, 'squirrels/mapping.html', {})
