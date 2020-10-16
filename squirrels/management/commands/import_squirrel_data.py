@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
 import csv
 from squirrels.models import Squirrel
+from datetime import datetime
 
 class Command(BaseCommand):
     help = 'Get squirrels information'
@@ -18,7 +19,7 @@ class Command(BaseCommand):
                 obj.Longitude = item["Y"]
                 obj.Unique_Squirrel_ID = item["Unique Squirrel ID"]
                 obj.Shift = item["Shift"]
-                obj.Date = item["Date"]
+                obj.Date = datetime.strptime(item["Date"],'%m%d%Y').date()
                 obj.Age = item["Age"]
                 obj.save()
         msg = f"You are importing from {file_}"

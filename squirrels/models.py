@@ -35,7 +35,7 @@ class Squirrel(models.Model):
     )
     
 
-    Date = models.DateTimeField(
+    Date = models.DateField(
         auto_now = False,
         auto_now_add = False,
         help_text=_('Date of finding Squirrel (sighting)'),
@@ -48,7 +48,6 @@ class Squirrel(models.Model):
     JUVENILE = 'Juvenile'
     UNKNOWN = '?'
 
-
     AGE_CHOICES = [
         (ADULT, _('Adult')),
         (JUVENILE, _('Juvenile')),
@@ -58,6 +57,10 @@ class Squirrel(models.Model):
     Age =  models.CharField(
         max_length = 15,
         help_text=_('Age of Squirrel'),
+        choices=AGE_CHOICES,
         # black = True
     )
 
+
+    def __str__(self):
+        return self.Unique_Squirrel_ID

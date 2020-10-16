@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <body>Hello again,mothermker!!
-  </body>
+	<body>
+		<ul>
+			{% for squirrel in squirrels %}
+			<li>{{ squirrel }}</li>
+			{% endfor %}
+		</ul>
+	</body>
 </html>
