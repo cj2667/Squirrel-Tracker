@@ -1,12 +1,11 @@
 <!doctype html>
 <html>
    <body>
-	   <p>id_details  x  3000</a></p>
-           <p><a href="/sightings/add">Go to add_details</a></p>
+	   <p><a href="/sigtings/add">Go to add</a></p>
 	   <p><a href="/sightings/stats">Go to stats</a></p>
                 <ul>
                         {% for sighting in sightings %}
-                        <li>{{ sighting.Unique_Squirrel_ID }}</li>
+			<li><a href="{% url 'squirrels:id_detail' sighting.id %}">{{ sighting.Unique_Squirrel_ID }}</a></li>
                         {% endfor %}
                 </ul>
    </body>
