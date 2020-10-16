@@ -3,9 +3,9 @@ from .models import Squirrel
 
 
 def index(request):
-    squirrels = Squirrel.objects.all()
+    sightings = Squirrel.objects.all()
     context  = {
-       'sighting_3000': squirrels, 
+       'sightings': sightings, 
     }
     return render(request, 'squirrels/index.html', context)
 
