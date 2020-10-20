@@ -42,16 +42,9 @@ def add_detail(request):
     return render(request, 'squirrels/add_detail.html', {})
 
 def stats(request):
-    return render(request, 'squirrels/stats.html', {})
+    sightings = Squirrel.objects.all()
+    context  = {
+       'sightings': sightings,
+    }
+    return render(request, 'squirrels/stats.html', context)
 
-#def chosen_sightings(request):
-#    sightings = Squirrel.objects.all()
-#    chosen_list = []
-#    for i in range(100):
-#        chosen_sighting = random.choice(sightings)
-#        chosen_list.append(chosen_sighting)
-
-#    context = {
-#        'chosen_list': chosen_list,
-#    }
-#    return render(request, 'squirrels/id_detail.html', context)
