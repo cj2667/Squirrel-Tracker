@@ -21,6 +21,21 @@ class Command(BaseCommand):
                 obj.Shift = item["Shift"]
                 obj.Date = datetime.strptime(item["Date"],'%m%d%Y').date()
                 obj.Age = item["Age"]
+
+
+                obj.Running = item["Running"]
+                obj.Chasing = item["Chasing"]
+                obj.Climbing = item["Climbing"]
+                obj.Eating = item["Eating"]
+                obj.Foraging = item["Foraging"]
+
+
+
+
+
+
+
+
                 obj.save()
         msg = f"You are importing from {file_}"
         self.stdout.write(self.style.SUCCESS(msg))

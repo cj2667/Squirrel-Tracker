@@ -62,5 +62,61 @@ class Squirrel(models.Model):
     )
 
 
+
+    TRUE = 'true'
+    FALSE = 'false'
+
+    TF_CHOICES = [
+        (TRUE, _('true')),
+        (FALSE, _('false')),
+    ]
+    
+    Running = models.CharField(
+        max_length = 15,
+        help_text = ('If Squirrel Running'),
+        choices = TF_CHOICES,
+        default = '',
+    )
+
+
+    Chasing = models.CharField(
+        max_length = 15,
+        help_text = ('If Squirrel Chasing'),
+        choices = TF_CHOICES,
+        default = '',
+    )
+
+
+    Climbing = models.CharField(
+        max_length = 15,
+        help_text = ('If Squirrel Climbing'),
+        choices = TF_CHOICES,
+        default = '',
+    )
+
+    Eating = models.CharField(
+        max_length = 15,
+        help_text = ('If Squirrel Eating'),
+        choices = TF_CHOICES,
+        default = '',
+    )
+
+    Foraging = models.CharField(
+        max_length = 15,
+        help_text = ('If Squirrel Foraging'),
+        choices = TF_CHOICES,
+        default = '',
+    )
+
+
+
+
+
+
+
+
+
+
+
     def __str__(self):
         return self.Unique_Squirrel_ID
