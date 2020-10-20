@@ -16,7 +16,16 @@ def welcome(request):
 
 
 def mapping(request):
-    return render(request, 'squirrels/mapping.html', {})
+    sightings = Squirrel.objects.all()
+    chosen_list = []
+    for i in range(100):
+        chosen_sighting = random.choice(sightings)
+        chosen_list.append(chosen_sighting)
+    sightings = chosen_list
+    context  = {
+       'sightings': sightings,
+    }
+    return render(request, 'squirrels/mapping.html', context)
 
 
 
