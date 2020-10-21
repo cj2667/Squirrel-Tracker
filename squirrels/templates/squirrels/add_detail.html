@@ -1,28 +1,18 @@
-<!doctype html>
-<html>
-        <head>
-                <title>Squirrel Tracker: Add a Squirrel Sight</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
- integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        </head>
-        <body>
-<style>body{padding-left:10px; padding-right:10px;}</style>
-		<p>
-		<br>
-		<strong><h2><img src="https://image.flaticon.com/icons/svg/604/604239.svg" style="width:60px" class="rounded" alt="..." >   Did you see a new Sqiurrel?    <img src="https://image.flaticon.com/icons/svg/1230/1230876.svg" style="width:60px" class="rounded" alt="..." ></strong>
-		</h2>
-		<p>Please fill out the following information to share it with us :)</p>
-		<hr>
-		<br>
-                <form method='post'>
-                        {% csrf_token %}
-                        {{form.as_table}}
-                        <br>
-			<p>Thanks for sharing! <img src="https://image.flaticon.com/icons/svg/1140/1140163.svg" style="width:30px" class="rounded" alt="..." ></p>
-                        <input type="submit" name="add">
-			<br>
-                </form>
-		<br>
-		<div style=font-size:12px>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-        </body>
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Squirrel Data</title>
+</head>
+<body>
+<h2>Add new squirrel Data</h2>
+<img src="https://media.npr.org/assets/img/2017/04/25/istock-115796521-fcf434f36d3d0865301cdcb9c996cfd80578ca99-s1100-c15.jpg" alt="Trulli" width="500" height="333">
+<form method="post">
+    {% csrf_token %}
+    <table>
+    {{form.as_table}}
+    </table>
+<input type="submit" value="Submit" />
+</form>
+</body>
 </html>

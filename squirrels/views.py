@@ -43,7 +43,7 @@ def id_detail(request, s_id):
     
     return render(request, 'squirrels/id_detail.html', context)
 
-def add_detail(request):
+#def add_detail(request):
 #
 #    if request.method == 'POST':
 #        form = SightForm(request.POST)
@@ -53,7 +53,25 @@ def add_detail(request):
 #    else:
 #       form = SightForm()
 
-    return render(request, 'squirrels/add_detail.html', {})
+#    return render(request, 'squirrels/add_detail.html', {})
+
+
+def add_detail(request):
+    if request.method == 'POST':
+        form = SightForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(f'/sightings/')
+    else:
+        form = SightForm()
+
+    context = {
+            'form':form,
+            }
+
+    return render(request, 'squirrels/add_detail.html', context)
+
+
 
 def stats(request):
     sightings = Squirrel.objects.all()
