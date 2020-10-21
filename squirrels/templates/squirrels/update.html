@@ -1,31 +1,28 @@
-  
+<!doctype html>
 <html>
- <body>
-   <div>
-        <strong>Update form for {{ sighting.Unique_Squirrel_ID }}</strong>
-   </div>
-   <div>
-    <form id="submit" method="post" action="{% url 'squirrels:update' %}"> 
-        {% csrf_token %}
-	<label for="Latitude">Latitude</label><br>
-	<input type="text" id="Latitude" placeholder="{{sighting.Latitude}}" name="Latitude"><br>
-        <label for="Longitude">Longitude:</label><br>
-        <input type="text" id="Longitude" placeholder="{{sighting.Longitude}}" name="Longtude"><br>
-
-        <label for="Shift">Shift:</label><br>
-        <input type="radio" id="AM" name="Shift" value="AM">
-        <label for="AM">AM</label><br>
-        <input type="radio" id="PM" name="Shift" value="PM">
-        <label for="PM">PM</label><br>
-
-        <label for="Date">Date:</label><br>
-        <input type="date" id="Date" placeholder="{{sighting.Date}}" name="Date"><br>
-        <label for="Dge">Age:</label><br>
-        <input type="number" id="Age" name="Age"><br>
-        <input type="hidden" name="Unique_Squirrel_ID" value="{{sighting.Unique_Squirrel_ID}}" >
-
-        <input type="submit" value="Update">
-  </div>
- </body>
-
+        <head>
+                <title>Squirrel Tracker: Update the Squirrel Sighting</title>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        </head>
+        <body>
+<style>body{padding-left:10px; padding-right:10px;}</style>
+                <p>
+                <br>
+		<strong><h2><img src="https://image.flaticon.com/icons/svg/604/604239.svg" style="width:60px" class="rounded" alt="..." >   Update the Squirrel Sighting    <img src="https://image.flaticon.com/icons/svg/1230/1230876.svg" style="width:60px" class="rounded" alt="..." ></strong>
+                </h2>
+                <p>Please use the following form to update the squirrel sighting</p>
+                <hr>
+                <br>
+                <form method='post'>
+                        {% csrf_token %}
+                        {{form.as_table}}
+                        <br>
+                        <p>Thanks for info! <img src="https://image.flaticon.com/icons/svg/1140/1140163.svg" style="width:30px" class="rounded" alt="..." ></p>
+                        <input type="submit" name="save">
+                        <br>
+                </form>
+                <br>
+                <div style=font-size:12px>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        </body>
 </html>
