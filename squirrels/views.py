@@ -3,7 +3,7 @@ from .models import Squirrel
 import random
 from django.http import HttpResponse, Http404
 from django.shortcuts import get_object_or_404
-
+from django.http import HttpResponseRedirect
 
 
 from .forms import SightForm
@@ -61,7 +61,7 @@ def add_detail(request):
         form = SightForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(f'/sightings/')
+            return HttpResponseRedirect(f'/sightings/')
     else:
         form = SightForm()
 
