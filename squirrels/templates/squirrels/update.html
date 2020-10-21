@@ -1,0 +1,31 @@
+  
+<html>
+ <body>
+   <div>
+        <strong>Update form for {{ sighting.Unique_Squirrel_ID }}</strong>
+   </div>
+   <div>
+    <form id="submit" method="post" action="{% url 'squirrels:update' %}"> 
+        {% csrf_token %}
+	<label for="Latitude">Latitude</label><br>
+	<input type="text" id="Latitude" placeholder="{{sighting.Latitude}}" name="Latitude"><br>
+        <label for="Longitude">Longitude:</label><br>
+        <input type="text" id="Longitude" placeholder="{{sighting.Longitude}}" name="Longtude"><br>
+
+        <label for="Shift">Shift:</label><br>
+        <input type="radio" id="AM" name="Shift" value="AM">
+        <label for="AM">AM</label><br>
+        <input type="radio" id="PM" name="Shift" value="PM">
+        <label for="PM">PM</label><br>
+
+        <label for="Date">Date:</label><br>
+        <input type="date" id="Date" placeholder="{{sighting.Date}}" name="Date"><br>
+        <label for="Dge">Age:</label><br>
+        <input type="number" id="Age" name="Age"><br>
+        <input type="hidden" name="Unique_Squirrel_ID" value="{{sighting.Unique_Squirrel_ID}}" >
+
+        <input type="submit" value="Update">
+  </div>
+ </body>
+
+</html>
