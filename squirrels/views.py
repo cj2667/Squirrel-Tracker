@@ -63,8 +63,32 @@ def add_detail(request):
 
 def stats(request):
     sightings = Squirrel.objects.all()
+    output = []
+    running_count = 0
+    chasing_count = 0
+    climbing_count = 0
+    eating_count = 0
+    foraging_count = 0
+    for sighting in sightings:
+        if sighting.Running == "true":
+            running_count += 1
+        if sighting.Chasing == "true":
+            chasing_count += 1
+        if sighting.Climbing == "true":
+            climbing_count += 1
+        if sighting.Eating == "true":
+            eating_count += 1
+        if sighting.Foraging == "true":
+            foraging_count += 1
+    output.extend([running_count, chasing_count, climbing_count, eating_count, foraging_count])
+
+
     context  = {
-       'sightings': sightings,
+            "running_count": running_count,
+            "chasing_count": chasing_count,
+            "climbing_count": climbing_count,
+            "eating_count": eating_count,
+            "foraging_count": foraging_count,
     }
     return render(request, 'squirrels/stats.html', context)
 
