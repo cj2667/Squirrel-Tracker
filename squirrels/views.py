@@ -4,21 +4,17 @@ import random
 from django.http import HttpResponse, Http404
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-
-
 from .forms import SightForm
 
 def index(request):
     sightings = Squirrel.objects.all()
     context  = {
-       'sightings': sightings, 
+       'sightings': sightings,
     }
     return render(request, 'squirrels/index.html', context)
 
 def welcome(request):
     return render(request, 'squirrels/welcome.html',{})
-
-
 
 def mapping(request):
     sightings = Squirrel.objects.all()
@@ -32,17 +28,12 @@ def mapping(request):
     }
     return render(request, 'squirrels/mapping.html', context)
 
-
-
 def id_detail(request, s_id):
     sighting = get_object_or_404(Squirrel, pk = s_id)
-    
     context = {
         'sighting': sighting,
     }
-    
     return render(request, 'squirrels/id_detail.html', context)
-
 
 def add_detail(request):
     if request.method == 'POST':
@@ -52,14 +43,10 @@ def add_detail(request):
             return HttpResponseRedirect(f'/sightings/')
     else:
         form = SightForm()
-
     context = {
             'form':form,
             }
-
     return render(request, 'squirrels/add_detail.html', context)
-
-
 
 def stats(request):
     sightings = Squirrel.objects.all()
@@ -81,8 +68,6 @@ def stats(request):
         if sighting.Foraging == "true":
             foraging_count += 1
     output.extend([running_count, chasing_count, climbing_count, eating_count, foraging_count])
-
-
     context  = {
             "running_count": running_count,
             "chasing_count": chasing_count,
@@ -91,8 +76,6 @@ def stats(request):
             "foraging_count": foraging_count,
     }
     return render(request, 'squirrels/stats.html', context)
-
-
 
 def update(request,squirrel_id):
     obj = get_object_or_404(Squirrel, Unique_Squirrel_ID = squirrel_id)
@@ -105,5 +88,3 @@ def update(request,squirrel_id):
     else:
         context = {'form': form}
         return render(request, 'squirrels/update.html', context)
-
-        

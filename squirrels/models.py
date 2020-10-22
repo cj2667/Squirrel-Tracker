@@ -7,7 +7,6 @@ class Squirrel(models.Model):
         help_text=_('Latitude of Squirrel'),
     )
 
-
     Longitude = models.CharField(
         max_length = 100,
         help_text=_('Longitude of Squirrel'),
@@ -17,12 +16,10 @@ class Squirrel(models.Model):
         max_length=100,
         help_text=_('ID of Squirrel'),
     )
-    
-
 
     AM = 'AM'
     PM = 'PM'
-    
+
     SHIFT_CHOICES = [
         (AM, _('AM')),
         (PM, _('PM')),
@@ -33,16 +30,13 @@ class Squirrel(models.Model):
         help_text=_('Shift of Squirrel'),
         choices=SHIFT_CHOICES,
     )
-    
 
     Date = models.DateField(
         auto_now = False,
         auto_now_add = False,
         help_text=_('yyyy-mm-dd'),
-        
+
     )
-    
-    
 
     ADULT = 'Adult'
     JUVENILE = 'Juvenile'
@@ -58,10 +52,7 @@ class Squirrel(models.Model):
         max_length = 15,
         help_text=_('Age of Squirrel'),
         choices=AGE_CHOICES,
-        # black = True
     )
-
-
 
     TRUE = 'true'
     FALSE = 'false'
@@ -70,7 +61,7 @@ class Squirrel(models.Model):
         (TRUE, _('true')),
         (FALSE, _('false')),
     ]
-    
+
     Running = models.CharField(
         max_length = 15,
         help_text = ('If Squirrel Running'),
@@ -78,14 +69,12 @@ class Squirrel(models.Model):
         default = '',
     )
 
-
     Chasing = models.CharField(
         max_length = 15,
         help_text = ('If Squirrel Chasing'),
         choices = TF_CHOICES,
         default = '',
     )
-
 
     Climbing = models.CharField(
         max_length = 15,
@@ -107,16 +96,6 @@ class Squirrel(models.Model):
         choices = TF_CHOICES,
         default = '',
     )
-
-
-
-
-
-
-
-
-
-
 
     def __str__(self):
         return self.Unique_Squirrel_ID
