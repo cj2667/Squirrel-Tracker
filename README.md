@@ -13,7 +13,7 @@ The App supports:
 - Show some calculated statistics of the sighting population
 
 How to import/export the data:
-After you download the data to your local device, write the following command in your terminal to import the data.
+After you download the data to your local device, write the following command in your terminal to import the data:
 
 **python manage.py import_squirrel_data /path/to/file.csv**
 
