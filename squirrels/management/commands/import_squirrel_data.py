@@ -19,8 +19,8 @@ class Command(BaseCommand):
                 obj.Longitude = item["Y"]
                 obj.Unique_Squirrel_ID = item["Unique Squirrel ID"]
                 obj.Shift = item["Shift"]
-               # obj.Date = datetime.strptime(item["Date"],'%m%d%Y').date()
-                obj.Date = datetime.date(int(item['Date'][-4:]),int(item['Date'][:2]), int(item['Date'][2:4])),
+                obj.Date = datetime.strptime(item["Date"],'%m%d%Y').date()
+                #obj.Date = datetime.date(int(item['Date'][-4:]),int(item['Date'][:2]), int(item['Date'][2:4])),
                 obj.Age = item["Age"]
 
 
