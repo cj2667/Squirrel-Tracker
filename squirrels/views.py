@@ -69,29 +69,17 @@ def stats(request):
     return render(request, 'squirrels/stats.html', context)
 
 
-#def update(request):
-#    if request.method == 'POST':
-#        form = UpdateForm(request.POST)
-#        if form.is_valid():
-#            form.save()
-#            return render(request, 'squirrels/update.html')
 
-
-
-
-
-def update(request,Unique_Squirrel_ID):
-    sight = Squirrel.objects.get(Unique_Squirrel_ID=Unique_Squirrel_ID)
-    if request.method == 'POST':
-        form = SightForm(request.POST, instance = sight)
-        if form.is_valid():
-            form.save()
-            return redirect(f'/sightings')
+def update(request,squirrel_id):
+    obj = get_object_or_404(Squirrel, Unique_Squirrel_ID = squirrel_id)
+    form = SightForm(request.POST or None, instance = obj)
+    context = {'form':form}
+    if form.is_valid():
+        obj = form.save(commit=False)
+        obj.save()
+        return HttpResponseRedirect('/sightings/')
     else:
-        form = SightForm(instance = sight)
+        context = {'form': form}
+        return render(request, 'squirrels/update.html', context)
 
-    context = {
-            'form':form,
-            }
-    return render(request, 'squirrels/update.html', context)
         
