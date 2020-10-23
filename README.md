@@ -2,7 +2,12 @@
 
 ## General Description
 We created a Django online App which allows users to track squirrels' locations and more detailed information.
-The data imported in this App is from **[2018 Central Park Squirrel Census](https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw)**
+The data imported in this App is from **[2018 Central Park Squirrel Census](https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw)**.
+
+
+**IMPORTANT**
+
+In order to successfully use the UPDATE feature of our App, **DON'T** download and use the data from the website provided. We have cleaned data to avoid "duplicated ID error" and put the cleaned csv in main branch. Please import that csv file and run the App.
 
 ## App Use Guidance
 The App supports:
@@ -22,7 +27,8 @@ To export the edited data, you can write:
 **python manage.py export_squirrel_data /path/to/file.csv**
 
 ## Where to see our App
-You can find our Repo on Github by clicking **[here](https://github.com/fanroyi/Squirrel-Tracker.git)**
+You can find our Repo on Github by clicking **[here](https://github.com/fanroyi/Squirrel-Tracker.git)**.
+
 
 ## Contribution
 This project is done by Group **Ruiyi & Cheng** in Class Tools for Analytics, Section 1.
